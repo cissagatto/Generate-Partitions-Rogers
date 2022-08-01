@@ -167,14 +167,14 @@ CutreeHClust <- function(ds,
   diretorios = directories(dataset_name, folderResults)
 
   s = 1
-  #cutreeParalel <- foreach(s = 1:number_folds) %dopar%{
+  cutreeParalel <- foreach(s = 1:number_folds) %dopar%{
   #while(s<=number_folds){
 
     cat("\n\nFold: ", s)
 
     #####################################################################
-    FolderRoot = "~/Generate-Partitions-Jaccard"
-    FolderScripts = "~/Generate-Partitions-Jaccard/R"
+    FolderRoot = "~/Generate-Partitions-Rogers"
+    FolderScripts = "~/Generate-Partitions-Rogers/R"
 
     #####################################################################
     # LOAD LIBRARIES
@@ -361,7 +361,7 @@ CutreeHClust <- function(ds,
       print(system(paste("rm -r ", FolderOS, "/Partition-", as.numeric(ds$Labels), sep="")))
 
 
-      s = s + 1
+      #s = s + 1
       gc()
     } # fim do fold
 

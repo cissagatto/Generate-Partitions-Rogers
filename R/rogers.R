@@ -79,7 +79,7 @@ args <- commandArgs(TRUE)
 # from csv file                                                               #
 ###############################################################################
 
-#config_file = "/home/cissa/Generate-Partitions-Rogers/GPJ-Config-Files/GPJ-GpositiveGO.csv"
+#config_file = "/home/cissa/Generate-Partitions-Rogers/GPR-Config-Files/GPR-GpositiveGO.csv"
 
 config_file <- args[1]
 
@@ -204,7 +204,7 @@ if(file.exists(str00)==FALSE){
 cat("\n####################################################################")
 cat("\n# Execute ROGERS Partitions                                        #")
 cat("\n####################################################################\n\n")
-timeFinal <- system.time(results <- executeGPJ(ds,
+timeFinal <- system.time(results <- executeGPR(ds,
                                                dataset_name,
                                                number_dataset,
                                                number_cores,
@@ -215,15 +215,37 @@ result_set <- t(data.matrix(timeFinal))
 setwd(diretorios$folderReports)
 write.csv(result_set, "Runtime.csv")
 
+setwd(diretorios$folderOutput)
+write.csv(result_set, "Runtime.csv")
+
 
 print(system(paste("rm -r ", diretorios$folderDatasets, sep="")))
 
 
+
 # cat("\n####################################################################")
-# cat("\n# Copy to google drive                                      #")
+# cat("\n# Copy OUTPUT to google drive                                      #")
 # cat("\n####################################################################\n\n")
-# destino = paste("nuvem:Partitions-Rogers/", dataset_name, sep="")
-# origem = diretorios$folderResults
+# destino = paste("nuvem:Partitions-Rogers/", dataset_name,
+#                 "/Output", sep="")
+# origem = diretorios$folderOutputDataset
+# comando = paste("rclone -P copy ", origem, " ", destino, sep="")
+# cat("\n", comando, "\n")
+# a = print(system(comando))
+# a = as.numeric(a)
+# if(a != 0) {
+#   stop("Erro RCLONE")
+#   quit("yes")
+# }
+
+
+
+# cat("\n####################################################################")
+# cat("\n# Copy PARTITIONS to google drive                                  #")
+# cat("\n####################################################################\n\n")
+# destino = paste("nuvem:Partitions-Rogers/", dataset_name,
+#                 "/Partitions", sep="")
+# origem = diretorios$folderPartitions
 # comando = paste("rclone -P copy ", origem, " ", destino, sep="")
 # cat("\n", comando, "\n")
 # a = print(system(comando))
@@ -239,7 +261,7 @@ cat("\n####################################################################")
 cat("\n# Compress folders and files                                       #")
 cat("\n####################################################################\n\n")
 str_a <- paste("tar -zcf ", diretorios$folderResults, "/", dataset_name,
-                "-results-gpj.tar.gz ",  diretorios$folderReports, sep = "")
+                "-results-gpr.tar.gz ",  diretorios$folderReports, sep = "")
 print(system(str_a))
 
 
@@ -249,7 +271,7 @@ cat("\n####################################################################\n\n"
 folder = paste(FolderRoot, "/Reports", sep="")
 if(dir.exists(folder)==FALSE){dir.create(folder)}
 str_b <- paste("cp -r ", diretorios$folderResults, "/", dataset_name,
-                "-results-gpj.tar.gz ", folder, sep = "")
+                "-results-gpr.tar.gz ", folder, sep = "")
 print(system(str_b))
 
 
@@ -265,7 +287,7 @@ rm(list = ls())
 gc()
 
 cat("\n#####################################################################")
-cat("\n# END OF JACCARD PARTITIONS. Thanks God!                            #")
+cat("\n# END OF ROGERS PARTITIONS. Thanks God!                            #")
 cat("\n#####################################################################")
 cat("\n\n\n\n")
 

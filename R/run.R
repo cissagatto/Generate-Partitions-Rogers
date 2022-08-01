@@ -34,7 +34,7 @@ FolderScripts = "~/Generate-Partitions-Rogers/R"
 # number_folds: number of folds for cross validation                                             #
 # delete: if you want, or not, to delete all folders and files generated                         #
 ##################################################################################################
-executeGPJ <- function(ds,
+executeGPR <- function(ds,
                        dataset_name,
                        number_dataset,
                        number_cores,
@@ -133,7 +133,7 @@ executeGPJ <- function(ds,
   cat("\n###########################################################\n\n")
   timesExecute = rbind(timeLabelSpace, timeCJ, timeCT)
   setwd(diretorios$folderOutputDataset)
-  write.csv(timesExecute, paste(dataset_name, "-RunTime-GPJ.csv", sep=""))
+  write.csv(timesExecute, paste(dataset_name, "-RunTime-GPR.csv", sep=""))
 
 
   cat("\n\n#########################################################")
@@ -144,7 +144,7 @@ executeGPJ <- function(ds,
 
   gc()
   cat("\n\n#########################################################")
-  cat("\n# RUN: END OF GPJ                                         #")
+  cat("\n# RUN: END OF GPR                                         #")
   cat("\n###########################################################\n\n")
 
   if(interactive()==TRUE){ flush.console() }

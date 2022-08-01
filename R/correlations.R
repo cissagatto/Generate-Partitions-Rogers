@@ -167,7 +167,8 @@ CutreeHClust <- function(ds,
   diretorios = directories(dataset_name, folderResults)
 
   s = 1
-  cutreeParalel <- foreach(s = 1:number_folds) %dopar%{
+  #cutreeParalel <- foreach(s = 1:number_folds) %dopar%{
+  #while(s<=number_folds){
 
     cat("\n\nFold: ", s)
 
@@ -222,7 +223,7 @@ CutreeHClust <- function(ds,
 
       #cat("\nCreates the folder to save clusters\n")
       FolderClusters = paste(FolderHCES, "/Clusters", sep="")
-      if(dir.exists(FolderClusters)==TRUE){dir.create(FolderClusters)}
+      if(dir.exists(FolderClusters)==FALSE){dir.create(FolderClusters)}
 
         #cat("\nDEND\n")
       Dend <- matrix_correlation_2 %>% as.dist %>% hclust(method = "single") %>% as.dendrogram
@@ -359,6 +360,8 @@ CutreeHClust <- function(ds,
       print(system(paste("rm -r ", FolderOS, "/Partition-1", sep="")))
       print(system(paste("rm -r ", FolderOS, "/Partition-", as.numeric(ds$Labels), sep="")))
 
+
+      s = s + 1
       gc()
     } # fim do fold
 

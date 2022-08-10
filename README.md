@@ -6,6 +6,7 @@ This code is part of my PhD at PPG-CC/DC/UFSCar. The aim is generate partitions 
 
 ## Types of Hybrid Partitions
 
+*OBS.: WE USED ONLY SINGLE LINKAGE METRIC TO BUILD THE DENDROGRAMS AND THEN CUT IT.
 
 ## Source Code
 This code source is composed of the project R to be used in RStudio IDE and also the following scripts R:

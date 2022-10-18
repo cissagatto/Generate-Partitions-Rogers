@@ -4,8 +4,6 @@ This code is part of my PhD at PPG-CC/DC/UFSCar. The aim is generate partitions 
 ## How to cite 
 @misc{Gatto2021, author = {Gatto, E. C.}, title = {Generate Rogers Partitions for Multilabel Classification}, year = {2021}, publisher = {GitHub}, journal = {GitHub repository}, howpublished = {\url{https://github.com/cissagatto/Generate-Partitions-Rogers}}}
 
-## Types of Hybrid Partitions
-
 *OBS.: WE USED ONLY SINGLE LINKAGE METRIC TO BUILD THE DENDROGRAMS AND THEN CUT IT.
 
 ## Source Code

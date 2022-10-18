@@ -108,9 +108,6 @@ Topology: 6-Core | model: Intel Core i7-10750H | bits: 64 | type: MT MCP | L2 ca
 
 Then the experiment was executed in a cluster at UFSCar.
 
-Important: we used the CLUS classifier in this experiment. This implies generating all physical ARFF training, validating, and testing files for each of the generated random partitions. Our code generates the partitions first in memory and then saves them to the HD. However, to avoid memory problems, immediately after saving to HD, the files are validated (or tested) and then deleted. Even so, make sure you have enough space on your HD and RAM for this procedure.
-
-
 ## Results
 The results stored in the folder _OUTPUT_ it will be used in the next phase: Best-Partition-Silhoute, Best-Partition-MacroF1 or Best-Partition-MicroF1. The result for a dataset must be put in the folder _PARTITIONS_ in the respective code.
 

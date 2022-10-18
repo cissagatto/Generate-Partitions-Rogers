@@ -90,15 +90,9 @@ To run this code you will need a configuration file saved in *csv* format and wi
 
 * Use folders like */dev/shm*, *tmp* or *scratch* here.
 
-*Example:*
-
-<img src="" width="300">
 
 You can save configuration files wherever you want. The absolute path will be passed as a command line argument.
 
-## Folder Strucutre
-
-<img src="" width="300">
 
 ## Software Requirements
 This code was develop in RStudio Version 1.4.1106 © 2009-2021 RStudio, PBC "Tiger Daylily" (2389bc24, 2021-02-11) for Ubuntu Bionic Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) QtWebEngine/5.12.8 Chrome/69.0.3497.128 Safari/537.36. The R Language version was: R version 4.1.0 (2021-05-18) -- "Camp Pontanezen" Copyright (C) 2021 The R Foundation for Statistical Computing Platform: x86_64-pc-linux-gnu (64-bit).
@@ -121,8 +115,6 @@ Important: we used the CLUS classifier in this experiment. This implies generati
 
 ## Results
 The results stored in the folder _OUTPUT_ it will be used in the next phase: Best-Partition-Silhoute, Best-Partition-MacroF1 or Best-Partition-MicroF1. The result for a dataset must be put in the folder _PARTITIONS_ in the respective code.
-
-<img src="" width="300">
 
 
 ## RUN
